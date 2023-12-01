@@ -24,7 +24,7 @@ public class RentACatBuggy implements RentACat {
 			c.returnCat();
 			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class RentACatBuggy implements RentACat {
 			c.rentCat();
 			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class RentACatBuggy implements RentACat {
 		for (Cat c : cats) {
 			if (!c.getRented()) {
 				ret += c.toString();
-				ret += "\t";
+				ret += "\n";
 			}
 		}
 		// If we get all the way through the list and did
@@ -89,7 +89,12 @@ public class RentACatBuggy implements RentACat {
 
 	public boolean catExists(int id) {
 		// TODO
-		return getCat(id) == null;
+		for (Cat c : cats) {
+			if (c.getId() == id) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
